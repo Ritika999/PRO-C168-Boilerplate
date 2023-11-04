@@ -22,23 +22,45 @@
 
 </head>
 
+
 <body style="margin : 0px; overflow: hidden;">
 
-  <a-scene 
-    embedded vr-mode-ui="enabled: false"     
-    arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
-    gesture-detector>
+  <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; 
+    sourceWidth:1280; sourceHeight:960; 
+    displayWidth: 1280; displayHeight: 960; 
+    debugUIEnabled: false;" gesture-detector create-buttons>
 
     <!-- Camera -->
     <a-entity camera></a-entity>
 
-    
-    
-    
+    <a-assets>
+      <a-asset-item id="pizza-model" src="./assets/pizza/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <!--Pattern Marker-->
+    <a-marker id="pizza-marker" type="pattern" url="assets/dish-markers/pattern-pizza.patt" cursor="rayOrigin: mouse">
+      
+      <a-entity id="pizza-3D-model" position="-1 0 0" scale="0.05 0.05 0.05" 
+        gltf-model="#pizza-model"
+        gesture-handler>
+      </a-entity>
+
+
+      <!-- Ingredients -->
+
+
+
+      
+
+    </a-marker>
+
+
   </a-scene>
 
   <!-- Button Main Div -->
- 
+  <div id="button-div"></div>
+
 </body>
+
 
 </html>
